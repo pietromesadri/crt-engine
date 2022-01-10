@@ -2,6 +2,7 @@ import pygame
 
 class Entity(pygame.sprite.Sprite):
 
+    # initial parameters
     def __init__(self, id: int, width: int, height: int, x: int = 0, y: int = 0) -> None:
         pygame.sprite.Sprite.__init__(self)
         self.id = id
@@ -9,6 +10,9 @@ class Entity(pygame.sprite.Sprite):
         self.height = height
         self.x = x
         self.y = y
+        self.max_health = 100
+        self.health = 100
+        self.type = ""
         self.move_up = False
         self.move_down = False
         self.move_left = False
@@ -26,6 +30,7 @@ class Entity(pygame.sprite.Sprite):
         self.y = y_coord
         self.rect.update(self.x, self.y, self.width, self.height)
 
+    # control entity movement
     def move(self, direction: int, active: bool) -> None:
         if direction == 1:
             self.move_up = self.active
@@ -43,7 +48,7 @@ class Entity(pygame.sprite.Sprite):
             self.move_left = self.active
             if self.collided:
                 self.set_pos(self.x + self.speed, self.y)
-            
+    # function called by sprite groups 
     def update(self, input_keys, frame_time: int):
         self.moving = []
         if pygame.K_w in input_keys:

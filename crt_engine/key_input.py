@@ -9,7 +9,7 @@ class KeyInput:
             if event.type == pygame.KEYDOWN:
                 self.keys_pressed.append(event.key)
             if event.type == pygame.KEYUP:
-                self.keys_pressed.remove(event.key)
+                if event.key in self.keys_pressed: self.keys_pressed.remove(event.key)
             if event.type == pygame.QUIT:
                 return 0
 

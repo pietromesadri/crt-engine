@@ -3,6 +3,7 @@ import pygame
 class Renderer:
     def __init__(self, title: str, width: int, height: int):
         pygame.display.init()
+        pygame.font.init()
         self.title = title
         self.width = width
         self.height = height
