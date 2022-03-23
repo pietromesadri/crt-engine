@@ -3,7 +3,7 @@ import pygame
 class Terrain(pygame.sprite.Sprite):
 
     # initial parameters
-    def __init__(self, id: int, width: int, height: int, x: int = 0, y: int = 0) -> None:
+    def __init__(self, id: int, width: int = 10, height: int = 10, x: int = 0, y: int = 0) -> None:
         pygame.sprite.Sprite.__init__(self)
         self.id = id
         self.width = width
