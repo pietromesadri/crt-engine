@@ -12,18 +12,17 @@ from loader import Loader
 class Engine:
     # initial parameters
     def __init__(self, fps: int) -> None:
-        self.version = "0.0.1"
-        self.title = "CRT Engine"
-        self.renderer = Renderer(f"{self.title} v{self.version}", 800, 600)
-        self.key_input = KeyInput()
-        self.loader = Loader()
+        self.version: str = "0.0.1"
+        self.title: str = "CRT Engine"
+        self.renderer: Renderer = Renderer(f"{self.title} v{self.version}", 800, 600)
+        self.key_input: KeyInput = KeyInput()
+        self.loader: Loader = Loader()
         self.clock = pygame.time.Clock()
         self.font = pygame.font.SysFont("consolas", 50)
-        self.fps = fps
-        self.running = True
-        self.debug_info = False
-        self.game_state = ""
-        print(pathlib.Path(__file__).resolve())
+        self.fps: int = fps
+        self.running: bool = True
+        self.debug_info: bool = False
+        self.game_state: str = ""
         self.icon = pygame.image.load(f"{pathlib.Path(__file__).parent.resolve()}/assets/icon.jpg")
         pygame.display.set_icon(self.icon)
         
@@ -31,10 +30,10 @@ class Engine:
         """ placeholder for loading everything necessary
             currently manually loading for testing
         """
-        player1 = Character(1, 40, 40, 100, 200)
+        player1: Character = Character(1, 40, 40, 100, 200)
         player1.type = "player"
-        grass_tile = Grass()
-        metal_tile = Metal()
+        grass_tile: Grass = Grass()
+        metal_tile: Metal = Metal()
         paused_text = self.font.render("PAUSED", True, (200, 200, 50))
         player_info = pygame.font.SysFont("consolas", 15)
         player_info_text = player_info.render(f"{player1.type}: {player1.id}", True, (0, 0, 255))

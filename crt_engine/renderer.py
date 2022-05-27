@@ -4,11 +4,11 @@ class Renderer:
     def __init__(self, title: str, width: int, height: int) -> None:
         pygame.display.init()
         pygame.font.init()
-        self.title = title
-        self.width = width
-        self.height = height
-        self.world_coord = [0, 0]
-        self.camera = [0, 0]
+        self.title: str = title
+        self.width: int = width
+        self.height: int = height
+        self.world_coord: list = [0, 0]
+        self.camera: list = [0, 0]
         self.main_display = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption(self.title)
 

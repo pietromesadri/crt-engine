@@ -2,7 +2,7 @@ import pygame
 
 class KeyInput:
     def __init__(self) -> None:
-        self.keys_pressed = []
+        self.keys_pressed: list = []
 
     def event_handler(self) -> int:
         for event in pygame.event.get():
@@ -12,5 +12,4 @@ class KeyInput:
                 if event.key in self.keys_pressed: self.keys_pressed.remove(event.key)
             if event.type == pygame.QUIT:
                 return 0
-
         return 1
